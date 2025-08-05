@@ -52,29 +52,29 @@
 //     .catch((error) => console.log(error))
 //     .then((response) => console.log(response));
 
-function getUsers(url) {
-    return new Promise((resolve, reject) => {
-        const xhr = new XMLHttpRequest();
-        try {
-            xhr.addEventListener("readystatechange", () => {
-                if (xhr.status === 200 && xhr.readyState === 4) {
-                    resolve(JSON.parse(xhr.responseText));
-                }
-            })
-        } catch (error) {
-            reject(error);
-        }
+// function getUsers(url) {
+//   return new Promise((resolve, reject) => {
+//     const xhr = new XMLHttpRequest();
+//     try {
+//       xhr.addEventListener("readystatechange", () => {
+//         if (xhr.status === 200 && xhr.readyState === 4) {
+//           resolve(JSON.parse(xhr.responseText));
+//         }
+//       });
+//     } catch (error) {
+//       reject(error);
+//     }
 
-        xhr.open("GET", url);
-        xhr.send();
-    })
-}
-getUsers("https://jsonplaceholder.typicode.com/users")
-    .then((response) => {
-        response.forEach(element => {
-            console.log(element.username);
-        });
-    })
-    .catch((error) => {
-        console.log(error)
-    })
+//     xhr.open("GET", url);
+//     xhr.send();
+//   });
+// }
+// getUsers("https://jsonplaceholder.typicode.com/users")
+//   .then((response) => {
+//     response.forEach((element) => {
+//       console.log(element.username);
+//     });
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   });
