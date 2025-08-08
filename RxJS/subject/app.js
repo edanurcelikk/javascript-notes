@@ -2,9 +2,9 @@
 // başkaları subjecte abone olabilir (fromevent interval gibi)
 // ama dışarıdan ona manuel olarak da veri gönderebiliriz. (subject.next() ile)
 // subject'in önemli olduğu yerler:
-// - componentler anrasında veri akışı kurmak reactta context yerine rxjs
+// - componentler arasında veri akışı kurmak reactta context yerine rxjs
 // - manual event yaymak(customevent gibi)
-// - bir veriyi birdem fazla yere yaymak
+// - bir veriyi birden fazla yere yaymak
 // - aynı veriyi birden çok kişiye broadcast etmek.
 
 const { Subject } = rxjs;
@@ -17,7 +17,7 @@ subject.subscribe((msg) => console.log("abone 2:", msg)); //abone 2
 subject.next("merhaba"); // her iki aboneye de gider.
 subject.next("selam");
 
-// Yani bir Subject, birden fazla dinleyiciye aynı anda veri gönderir.
+// yani bir subject birden fazla dinleyiciye aynı anda veri gönderir.
 
 const stockSubject = new Subject();
 
@@ -58,9 +58,9 @@ stockSubject.subscribe(() => {
 });
 
 document.getElementById("buy-button").addEventListener("click", () => {
-  stockSubject.next();
+  stockSubject.next(); // subscribe() tetikledik
 });
 
 // kullanıcı butona tıkladığında stockSubject.next(); çağırılıyor
 // stockSubject üzerinden abonelere sinyal gönderilir.
-// yukarıdaki abone tetiklenir ve stoklar sıfırlanır, toast gösterilir.
+// yukarıdaki abone tetiklenir, stoklar sıfırlanır ve toast gösterilir.
